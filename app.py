@@ -9,15 +9,14 @@ import os
 
 st.title("Point Cloud Downsampler")
 tempfile_dir = tempfile.TemporaryDirectory()
-file = st.file_uploader("Choose file")
+file = st.sidebar.file_uploader("Choose file")
 
 if file is not None:
     pcd_file_path = os.path.join(tempfile_dir.name, 'file.ply') 
-    st.text(pcd_file_path)
     with open(pcd_file_path,"wb") as f:
         f.write(file.getbuffer())
 
-    voxel_size_rate = st.slider("voxel size",0,100,50)
+    voxel_size_rate = st.sidebar.slider("voxel size",0,100,50)
     voxel_max = 0.05
     voxel_size = voxel_size_rate/100.0 * voxel_max
     
