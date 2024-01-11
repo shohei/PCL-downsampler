@@ -1,0 +1,6 @@
+# PCL downsampler
+
+```
+./start.sh
+```
+
